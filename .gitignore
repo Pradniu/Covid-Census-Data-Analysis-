@@ -1,0 +1,125 @@
+# Data Files (Large Excel and Binary Files)
+*.xlsx
+*.xls
+*.csv
+*.tsv
+*.parquet
+
+# Power BI Files
+*.twbx
+*.pbix
+*.pbit
+
+# SQL Server & Database Files
+*.mdf
+*.ldf
+*.ndf
+*.mds
+*.bak
+*.dmp
+*.trn
+
+# Python
+*.py[cod]
+__pycache__/
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+*.bak
+*~
+
+# System Files
+.env
+.env.local
+config.local.json
+secrets.json
+
+# Build & Distribution
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Statistical & Analysis Tools
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Stata
+*.log
+*.doh
+
+# SPSS
+*.bak
+
+# Output Reports (Optional - uncomment if needed)
+# output/
+# results/
+# reports/
+
+# Large Data Files (Uncomment if needed)
+# data/raw/
+# data/processed/
+
+# Credentials (Never commit credentials)
+credentials.json
+api_keys.txt
+.aws/
+.azure/
+
+# Lock Files (Optional)
+# Pipfile.lock
+# poetry.lock
+# package-lock.json
+
+# Node Modules (If using npm/node tools)
+node_modules/
+npm-debug.log
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Git LFS (Large File Storage)
+# Uncomment if using Git LFS for large files
+# *.xlsx filter=lfs diff=lfs merge=lfs -text
+# *.twbx filter=lfs diff=lfs merge=lfs -text
