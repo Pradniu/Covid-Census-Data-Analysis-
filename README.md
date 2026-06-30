@@ -1,255 +1,237 @@
 # COVID-19 Census Data Analysis
 
-A comprehensive data analysis project exploring COVID-19 pandemic statistics across countries and regions. This project combines SQL data manipulation, Excel data cleaning, and interactive Power BI visualizations to derive meaningful insights from global COVID-19 data.
+Analyzed global COVID-19 pandemic data to identify trends, infection rates, mortality rates, and vaccination progress. Used SQL Server for data queries, Excel for data cleaning, and Power BI for interactive visualizations.
+
+## Table of Contents
+1. Project Overview
+2. Key Metrics
+3. Tools Used
+4. Project Files
+5. How to Use
+6. Key Findings
+7. Setup Instructions
+8. Contact
 
 ## Project Overview
 
-This project analyzes global COVID-19 death and vaccination data to identify trends, infection rates, mortality rates, and vaccination progress across countries and continents. The analysis includes data exploration, statistical calculations, and interactive dashboards for data-driven insights.
+This project explores COVID-19 death and vaccination data across countries and continents to answer critical questions:
+- Which countries have the highest infection rates relative to population?
+- What is the death percentage by country?
+- How effectively did vaccination programs roll out globally?
+- Which continents were most affected?
 
-Key metrics analyzed:
-- Death Percentage: Calculated as (total_deaths/total_cases) × 100
-- Infection Rate: (total_cases/population) × 100 by country
-- Vaccination Coverage: Running total of vaccinations by location
-- Continental Comparisons: Death counts and statistics by continent
-- Country-Specific Analysis: Focused analysis on individual countries like Nepal
+## Key Metrics
 
-## Project Structure
+Death Percentage: (total_deaths/total_cases) × 100
+- Measures how many COVID cases resulted in death in each country
 
-The project contains the following files:
+Infection Rate: (total_cases/population) × 100
+- Shows what percentage of population got infected
 
-- README.md - This documentation file
-- .gitignore - Git ignore configuration
-- LICENSE - Project license
-- CovidDeaths.xlsx - Raw COVID-19 deaths data
-- covid vaccinations.xlsx - Raw vaccination data
-- CovidSQLQuery.sql - SQL queries for data analysis
-- Covid Data .twbx - Power BI dashboard visualization
+Vaccination Coverage: (total_vaccinations/population) × 100
+- Tracks vaccination rollout effectiveness
 
-## Tools and Technologies Used
+## Tools Used
 
-- SQL Server - Data querying and analysis using T-SQL
-- Microsoft Excel - Data cleaning, exploration, and preprocessing
-- Power BI - Interactive dashboards and visualizations
-- Git and GitHub - Version control and collaboration
+SQL Server - Complex data queries and analysis
+Excel - Data cleaning and preprocessing
+Power BI - Interactive dashboards and visualizations
+Git - Version control
 
-## Data Description
+## Project Files
 
-CovidDeaths.xlsx contains historical COVID-19 death statistics with columns like:
-- continent - Geographic continent
-- location - Country name
-- date - Date of record
-- population - Country population
-- total_cases - Cumulative COVID-19 cases
-- new_cases - New cases on that date
-- total_deaths - Cumulative deaths
-- new_deaths - New deaths on that date
+CovidDeaths.xlsx (17.5 MB)
+- Raw COVID-19 death statistics by country and date
+- Includes: location, date, cases, deaths, population
 
-covid vaccinations.xlsx contains vaccination progress data with columns including:
-- continent - Geographic continent
-- location - Country name
-- date - Date of record
-- population - Country population
-- new_vaccinations - Daily new vaccinations
+covid vaccinations.xlsx (23.5 MB)
+- Raw vaccination data by country and date
+- Includes: location, date, new vaccinations, population
 
-## SQL Analysis Queries
+CovidSQLQuery.sql (4 KB)
+- 11 optimized SQL queries for data analysis
+- Includes: death percentages, infection rates, vaccination coverage, continental comparisons
 
-The CovidSQLQuery.sql file contains multiple analytical queries:
+Covid Data .twbx (4.4 MB)
+- Interactive Power BI dashboard
+- Features: maps, trend charts, regional comparisons, KPI cards
 
-### Data Overview
-Retrieve all COVID death records by continent, and list location, date, cases, and deaths information.
-
-### Death Percentage Analysis
-Calculate death percentage for each location using (total_deaths/total_cases) × 100 formula. Includes country-specific analysis such as Nepal and global aggregate statistics.
-
-### Infection Rate Analysis
-Identifies countries with the highest infection rates compared to their population:
-
-```sql
-SELECT location, population, date, 
-       MAX(total_cases) as HighestInfected,
-       MAX((total_cases/population)) * 100 as InfectedPercentage
-GROUP BY location, population, date
-ORDER BY InfectedPercentage DESC
-```
-
-### Death Count Rankings
-Shows countries with the highest death counts and continental death count comparisons. Excludes international aggregates to focus on actual country-level data.
-
-### Vaccination Analysis
-Joins the deaths and vaccination tables together to calculate running vaccination totals and compute vaccination percentage as (totalVaccinations/population) × 100.
-
-### Advanced SQL Techniques Used
-- Window Functions: Running totals with SUM() OVER (PARTITION BY ... ORDER BY ...)
-- CTEs: Common Table Expressions for complex queries
-- Temporary Tables: Performance optimization with #PercentPopulationvaccinated
-- Views: Reusable queries with PercentPopulationvaccinated view
-
-## Power BI Dashboard
-
-The Power BI file (Covid Data .twbx) includes interactive visualizations:
-
-- Map Visualizations: Geographic heat maps showing infection and death rates
-- Trend Charts: Time-series analysis of cases and deaths
-- Regional Dashboards: Continent and country-level comparisons
-- KPI Cards: Key metrics for global statistics
-- Vaccination Progress: Vaccination coverage by region
-
-Features of the dashboard:
-- Interactive filters by country, continent, and date range
-- Drill-down capabilities for detailed analysis
-- Real-time metric updates based on data refresh
-
-## Getting Started
-
-Prerequisites
-- SQL Server or compatible database
-- Microsoft Excel
-- Power BI Desktop for viewing .twbx files
-- Git for version control
-
-Setup Instructions
+## How to Use
 
 1. Clone the Repository
-
-Open your terminal and run:
 ```bash
 git clone https://github.com/Pradniu/Covid-Census-Data-Analysis-.git
-cd Covid-Census-Data-Analysis-
 ```
 
-2. Prepare the Data
+2. Open Data Files
+- Review CovidDeaths.xlsx and covid vaccinations.xlsx in Excel
 
-Open CovidDeaths.xlsx and covid vaccinations.xlsx in Excel. Review data quality and structure. Check for any missing values or data inconsistencies.
-
-3. Set Up SQL Database
-
-Create a new database named "census" in SQL Server. Import the Excel files into SQL Server tables. Name the tables as CovidDeaths and CovidVaccinations.
+3. Set Up Database
+- Create database named "census" in SQL Server
+- Import Excel files as tables: CovidDeaths and CovidVaccinations
 
 4. Run SQL Queries
+- Execute CovidSQLQuery.sql in SQL Server Management Studio
+- Queries generate analysis tables for Power BI
 
-Open CovidSQLQuery.sql in SQL Server Management Studio. Execute queries sequentially to generate analysis tables. Export query results for Power BI integration.
+5. View Dashboard
+- Open Covid Data .twbx in Power BI Desktop
+- Explore interactive visualizations and filter by country, continent, date range
 
-5. View Power BI Dashboard
+## Key Findings
 
-Open Covid Data .twbx in Power BI Desktop. Refresh data connections if needed. Explore the interactive visualizations and insights.
-
-## Key Insights and Findings
-
-Death Percentage
-Global death percentage varies significantly by location and time period. Nepal-specific analysis is available in the query results showing the country's mortality trends.
+Deaths by Country
+- Top countries by total death count identified and ranked
+- Nepal-specific analysis shows death percentage trends
 
 Infection Rates
-Countries are ranked by infection percentage relative to their population. This helps identify regions with the highest outbreak severity regardless of total population size.
+- Countries ranked by percentage of population infected
+- Shows outbreak severity beyond raw case numbers
+- Helps identify most impacted regions
 
 Vaccination Progress
-Running vaccination totals by country and date help track the vaccination rollout efficiency. The vaccination coverage percentage calculations show the percentage of the population vaccinated.
+- Running vaccination totals track rollout by country
+- Shows vaccination percentage relative to population
+- Compares vaccination speed across continents
 
 Continental Comparison
-Aggregate death counts by continent identify the most affected regions. This data supports policy-level decision making at regional and international levels.
+- Aggregate death counts and statistics by continent
+- Identifies regional patterns and trends
+- Supports policy-level decision making
 
-## Data Cleaning and Preparation
+## Setup Instructions
 
-Steps Performed:
-- Excel Data Review: Checked for duplicates, missing values, and data type consistency
-- Type Conversion: Converted text numbers to proper numeric types in SQL
-- Filtering: Removed international aggregates and incomplete records
-- Aggregation: Grouped data by location, continent, and date for analysis
+Requirements:
+- SQL Server (2016 or later)
+- Microsoft Excel
+- Power BI Desktop
+- Git
 
-SQL Techniques Used for Cleaning:
+Step-by-Step:
 
-```sql
--- Type conversion for calculations
-CAST(new_deaths AS INT)
-CONVERT(BIGINT, new_vaccinations)
+1. Clone repository and navigate to folder
 
--- Null filtering to focus on specific regions
-WHERE continent IS NOT NULL
-WHERE continent IS NULL
+2. Open SQL Server Management Studio
+   - Create new database: census
+   - Right-click > Tasks > Import Data
+   - Select CovidDeaths.xlsx file
+   - Import as table: CovidDeaths
+   - Repeat for covid vaccinations.xlsx as CovidVaccinations
 
--- Window functions for running totals
-SUM(CONVERT(BIGINT, new_vaccinations)) 
-OVER (PARTITION BY location ORDER BY date)
-```
+3. Open CovidSQLQuery.sql
+   - Execute all queries to generate analysis tables
 
-## Query Examples
+4. Connect Power BI to Database
+   - Open Covid Data .twbx
+   - Update data source connections to your census database
+   - Refresh data
 
-Example 1: Death Rate by Country
+5. Explore Dashboard
+   - Filter by country, continent, date
+   - Export reports as needed
 
-```sql
-SELECT location, date, population, total_cases, total_deaths,
-       (total_deaths/total_cases)*100 as DeathPercentage
-FROM CovidDeaths
-WHERE location LIKE '%nepal%'
-ORDER BY location, date
-```
+## SQL Query Summary
 
-Example 2: Top Countries by Death Count
+Query 1: Overview of all death records by continent
 
-```sql
-SELECT TOP 10 location, MAX(CAST(total_deaths AS INT)) as TotalDeaths
-FROM CovidDeaths
-WHERE continent IS NOT NULL
-GROUP BY location
-ORDER BY TotalDeaths DESC
-```
+Query 2: Basic metrics (cases, deaths, population) by location and date
 
-Example 3: Vaccination Coverage Percentage
+Query 3: Death percentage for Nepal - shows how deadly COVID was
 
-```sql
-SELECT continent, location, date, population, 
-       (totalVaccinations/population)*100 as VaccinationPercentage
-FROM PercentPopulationvaccinated
-ORDER BY location, date
-```
+Query 4: Global statistics - aggregated deaths and case percentages
 
-## File Formats and Sizes
+Query 5: Highest infection rates - which countries had population most affected
 
-| File | Type | Size | Purpose |
-|------|------|------|---------|
-| CovidDeaths.xlsx | Excel | 17.5 MB | Raw death statistics |
-| covid vaccinations.xlsx | Excel | 23.5 MB | Raw vaccination data |
-| CovidSQLQuery.sql | SQL Script | 4 KB | Analysis queries |
-| Covid Data .twbx | Power BI | 4.4 MB | Interactive dashboard |
+Query 6: Countries ranked by total death count
+
+Query 7: Continents ranked by total death count
+
+Query 8: Join deaths with vaccination data - shows vaccination progress
+
+Query 9: CTE approach - organized view of population vs vaccination
+
+Query 10: Temporary table with vaccination percentage calculations
+
+Query 11: Reusable view for vaccination data analysis
+
+## Power BI Dashboard Features
+
+Map Visualizations - Heat maps showing infection and death rates by country
+
+Trend Charts - Time-series graphs of cases and deaths over time
+
+Regional Dashboards - Country-level and continent-level comparisons
+
+KPI Cards - Key metrics at a glance (global deaths, cases, vaccinations)
+
+Vaccination Progress - Coverage percentage by region
+
+Interactive Filters - Drill down by country, continent, date range
+
+## Data Quality
+
+- All null values handled with proper WHERE clauses
+- Division by zero errors prevented with CASE statements
+- Type conversion ensures accurate calculations
+- Duplicate queries removed for clean analysis
+
+## Key Technologies Demonstrated
+
+Window Functions - Running totals of vaccinations by location
+
+Common Table Expressions (CTEs) - Organized complex queries
+
+Temporary Tables - Performance optimization
+
+Views - Reusable query logic
+
+Type Conversion - Consistent numeric calculations
+
+Aggregation - Grouping by location, continent, date
+
+## Insights for Recruiters
+
+Demonstrates advanced SQL skills: Window functions, CTEs, joins, aggregation
+
+Shows data visualization expertise: Power BI interactive dashboards
+
+Proves data cleaning ability: Excel preprocessing and SQL validation
+
+Indicates analytical thinking: Identified key metrics and trends
+
+Shows version control knowledge: Git repository structure
+
+Reflects attention to detail: Error handling, null checks, consistent formatting
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (git checkout -b feature/improvement)
-3. Commit your changes (git commit -m 'Add analysis improvement')
-4. Push to the branch (git push origin feature/improvement)
-5. Open a Pull Request
+Fork the repository
+Create feature branch (git checkout -b feature/improvement)
+Commit changes (git commit -m 'Add analysis improvement')
+Push branch (git push origin feature/improvement)
+Open Pull Request
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+MIT License - See LICENSE file for details
 
-## Contact and Support
+## Contact
 
 GitHub: Pradniu
 Repository: Covid-Census-Data-Analysis-
 
-For questions or issues, please open a GitHub Issue in the repository.
+Questions or suggestions? Open a GitHub Issue.
 
-## Resources
+## Quick Start Checklist
 
-SQL Server Documentation: https://docs.microsoft.com/en-us/sql/
-Power BI Learning: https://docs.microsoft.com/en-us/power-bi/
-COVID-19 Data Sources: https://covid19.who.int/
+Clone repository
+Review data files in Excel
+Create "census" database in SQL Server
+Import Excel files as tables
+Execute all SQL queries
+Open Power BI dashboard
+Customize visualizations
+Export insights and reports
 
-## Using This Project
-
-To use this project, follow these steps:
-
-1. Clone the repository
-2. Review data files in Excel
-3. Import data to SQL Server
-4. Execute SQL queries
-5. Verify results
-6. Open Power BI dashboard
-7. Customize visualizations as needed
-8. Export insights and reports
-
-Project Status: Active
+Project Status: Complete and Active
 Last Updated: June 2026
