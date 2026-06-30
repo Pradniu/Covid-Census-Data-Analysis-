@@ -1,6 +1,7 @@
 # COVID-19 Census Data Analysis
+<img width="2312" height="1264" alt="image" src="https://github.com/user-attachments/assets/746ca616-5315-4cc9-bbfb-f44c74458b39" />
 
-Analyzed global COVID-19 pandemic data to identify trends, infection rates, mortality rates, and vaccination progress. Used SQL Server for data queries, Excel for data cleaning, and Power BI for interactive visualizations.
+Analyzed global COVID-19 pandemic data to identify trends, infection rates, mortality rates, and vaccination progress. Used SQL Server for data queries, Excel for data cleaning, and Tableau interactive visualizations.
 
 ## Table of Contents
 1. Project Overview
@@ -35,7 +36,7 @@ Vaccination Coverage: (total_vaccinations/population) × 100
 
 SQL Server - Complex data queries and analysis
 Excel - Data cleaning and preprocessing
-Power BI - Interactive dashboards and visualizations
+Tableau - Interactive dashboards and visualizations
 Git - Version control
 
 ## Project Files
@@ -53,7 +54,7 @@ CovidSQLQuery.sql (4 KB)
 - Includes: death percentages, infection rates, vaccination coverage, continental comparisons
 
 Covid Data .twbx (4.4 MB)
-- Interactive Power BI dashboard
+- Interactive Tableau DashBoard
 - Features: maps, trend charts, regional comparisons, KPI cards
 
 ## How to Use
@@ -75,7 +76,7 @@ git clone https://github.com/Pradniu/Covid-Census-Data-Analysis-.git
 - Queries generate analysis tables for Power BI
 
 5. View Dashboard
-- Open Covid Data .twbx in Power BI Desktop
+- Open Covid Data .twbx in Tableau Desktop or Public
 - Explore interactive visualizations and filter by country, continent, date range
 
 ## Key Findings
@@ -104,7 +105,7 @@ Continental Comparison
 Requirements:
 - SQL Server (2016 or later)
 - Microsoft Excel
-- Power BI Desktop
+- Tableau
 - Git
 
 Step-by-Step:
@@ -121,7 +122,7 @@ Step-by-Step:
 3. Open CovidSQLQuery.sql
    - Execute all queries to generate analysis tables
 
-4. Connect Power BI to Database
+4. Connect Tableau to Database
    - Open Covid Data .twbx
    - Update data source connections to your census database
    - Refresh data
@@ -154,7 +155,7 @@ Query 10: Temporary table with vaccination percentage calculations
 
 Query 11: Reusable view for vaccination data analysis
 
-## Power BI Dashboard Features
+## Tableau Dashboard Features
 
 Map Visualizations - Heat maps showing infection and death rates by country
 
@@ -193,7 +194,7 @@ Aggregation - Grouping by location, continent, date
 
 Demonstrates advanced SQL skills: Window functions, CTEs, joins, aggregation
 
-Shows data visualization expertise: Power BI interactive dashboards
+Shows data visualization expertise: Tableau interactive dashboards
 
 Proves data cleaning ability: Excel preprocessing and SQL validation
 
@@ -229,7 +230,7 @@ Review data files in Excel
 Create "census" database in SQL Server
 Import Excel files as tables
 Execute all SQL queries
-Open Power BI dashboard
+Open Tableau dashboard
 Customize visualizations
 Export insights and reports
 
